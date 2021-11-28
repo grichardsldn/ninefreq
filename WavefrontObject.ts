@@ -29,7 +29,7 @@ export class WavefrontObject {
   }
 
   private pushVertex(position: Position): number {
-    console.log(`pushing ${JSON.stringify([...position])}`)
+    // console.log(`pushing ${JSON.stringify([...position])}`)
     const offset = this.vertexes.length
     this.vertexes[offset] = [...position]
     return offset+1

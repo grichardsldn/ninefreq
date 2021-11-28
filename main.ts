@@ -2,6 +2,9 @@ import * as colour from "./colour"
 
 import { WavefrontObject, Position, addPosition, scalePosition } from './WavefrontObject'
 
+const pseudoRandom = require('pseudo-random');
+const prng = pseudoRandom(12021990);
+
 const block: Position[][] = [
   [[0,0,0],[3,0,0],[3,5,0],[0,5,0]], // base
   [[0,0,0],[3,0,0],[3,0,3],[0,0,21]], // front
@@ -34,20 +37,30 @@ const drawBlock = (
   
 }
 
-// const pink = [90,90,90, 20,20,20, 20,20, 20] as colour.Spectrum
-
-// colour.writeMaterial("pink", colour.simpleRGB(colour.filter(pink, colour.LOW_FILTER)), "output")
-
-const filter = colour.ALL_FILTER
+const filter = colour.MID_FILTER
 
 const pink = [90,90,90, 20,20,20, 20,20, 20] as colour.Spectrum
 colour.writeMaterial("pink", colour.simpleRGB(colour.filter(pink, filter)), "output")
 
 const o = new WavefrontObject()
 const origin = [-1,-1,-1] as Position
-drawBlock(o, 0.1, origin ,0,0, 'pink')
-drawBlock(o, 0.1, origin ,1,0, 'pink')
-drawBlock(o, 0.1, origin ,2,0, 'pink')
+
+const randomLevel = () => Math.floor((prng.random() * 66))
+for (let c = 0; c < 9; c++) {
+  const name = `random-c${c}`
+  let spectrum = [...Array(9)] as colour.Spectrum
+  spectrum = spectrum.map(v => randomLevel()) as colour.Spectrum
+  colour.writeMaterial(name, colour.simpleRGB(colour.filter(spectrum, filter)), "output")
+  drawBlock(o, 0.1, origin ,c,-1, name)
+}
+
+for (let c = 0; c < 9; c++) {
+  const name = `random-a${c}`
+  let spectrum = [...Array(9)] as colour.Spectrum
+  spectrum = spectrum.map(v => randomLevel()) as colour.Spectrum
+  colour.writeMaterial(name, colour.simpleRGB(colour.filter(spectrum, filter)), "output")
+  drawBlock(o, 0.1, origin ,c,0, name)
+}
 
 for (let c = 0; c < 9; c++) {
   const name = `thin_${c}`;
@@ -80,13 +93,21 @@ const spectra = [
 ]
 for (let c = 0; c < 9; c++) {
   const name = `narrow_notch_${c}`;
-  
   colour.writeMaterial(name, colour.simpleRGB(colour.filter(spectra[c], filter)), "output")
   drawBlock(o, 0.1, origin ,c,3, name)
 }
+
+for (let c = 0; c < 9; c++) {
+  const name = `random-b${c}`
+  let spectrum = [...Array(9)] as colour.Spectrum
+  spectrum = spectrum.map(v => randomLevel()) as colour.Spectrum
+  colour.writeMaterial(name, colour.simpleRGB(colour.filter(spectrum, filter)), "output")
+  drawBlock(o, 0.1, origin ,c,4, name)
+}
+
 const white = Array(9).fill(33) as colour.Spectrum
 colour.writeMaterial('white', colour.simpleRGB(colour.filter(white, filter)), "output")
 for (let c = 0; c < 9; c++) {
-  drawBlock(o, 0.1, origin ,c,4, 'white')
+  drawBlock(o, 0.1, origin ,c,5, 'white')
 }
 o.write('output','test')
