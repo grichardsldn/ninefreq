@@ -44,8 +44,3 @@ illum 0
 `
   writeFileSync(`${dir}/${name}.mtl`, output)
 }
-
-
-const pink = [90,90,90, 80,80,80, 80,80, 80] as Spectrum
-
-writeMaterial("pink", simpleRGB(filter(pink, LOW_FILTER)), "output")

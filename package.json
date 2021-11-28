@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "gen": "ts-node colour.ts"
+    "gen": "ts-node main.ts"
   },
   "name": "ninefreq",
   "version": "1.0.0",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/grichardsldn/ninefreq#readme",
   "dependencies": {
+    "11": "0.0.1",
     "fs": "^0.0.1-security",
     "ts-node": "^10.4.0"
   }
