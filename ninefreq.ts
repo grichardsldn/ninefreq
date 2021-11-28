@@ -7,11 +7,14 @@ const writeMaterial = (
   blue: number,
   dir: string,
   ) => {
+    const r = red.toFixed(6)
+    const g = green.toFixed(6)
+    const b = blue.toFixed(6)
     const output = `
 newmtl ${name}
-Ka ${red} ${green} ${blue} 
-Kd ${red} ${green} ${blue} 
-Ks ${red} ${green} ${blue}
+Ka ${r} ${g} ${b} 
+Kd ${r} ${g} ${b} 
+Ks ${r} ${g} ${b}
 Ns 100
 Ni 1.000000 
 d 1.000000 
