@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "gen": "ts-node ninefreq.ts"
+    "gen": "ts-node colour.ts"
   },
   "name": "ninefreq",
   "version": "1.0.0",
