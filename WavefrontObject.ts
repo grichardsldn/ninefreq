@@ -41,6 +41,20 @@ export class WavefrontObject {
     this.faces.push(face)
   }
 
+  public addQuadrilateral(p1: Position, p2: Position, p3: Position, p4:Position, material: string): void {
+    this.pushMaterial(material)
+    const face: Face = {
+      material,
+      positions: [
+        this.pushVertex(p1),
+        this.pushVertex(p2),
+        this.pushVertex(p3),
+        this.pushVertex(p4),
+      ],
+    }
+    this.faces.push(face)
+  }
+
   public write(dir: string, name: string): void {
     const lines: string[] = []
     lines.push(`o ${name}`)
