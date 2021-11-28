@@ -6,6 +6,9 @@ export type Spectrum = [
   number, number, number, number, number, number, number, number, number
 ]
 
+export const LOW_FILTER = [100,0,0, 100,0,0, 100,0,0] as Spectrum
+export const MID_FILTER = [0,100,0, 0,100,0, 0,100,0] as Spectrum
+export const HIGH_FITER = [0,0,100, 0,0,100, 0,0,100] as Spectrum
 
 export const simpleRGB = (colour: Spectrum): RGB => {
   const s = colour
@@ -16,7 +19,7 @@ export const simpleRGB = (colour: Spectrum): RGB => {
   ]
 }
 
-export const filterRGB = (colour: Spectrum, filter: Spectrum): Spectrum => {
+export const filter = (colour: Spectrum, filter: Spectrum): Spectrum => {
   const range = [0,1,2,3,4,5,6,7,8]
   return range.map(n => colour[n] * (filter[n] / 100.0)) as Spectrum
 }
@@ -45,6 +48,4 @@ illum 0
 
 const pink = [90,90,90, 80,80,80, 80,80, 80] as Spectrum
 
-writeMaterial("pink", simpleRGB(pink), "output")
-
-//writeMaterial("pink", [90,80,80], "output")
+writeMaterial("pink", simpleRGB(filter(pink, LOW_FILTER)), "output")
