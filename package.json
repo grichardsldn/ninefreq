@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "ts-node ninefreq.ts"
+    "gen": "ts-node ninefreq.ts"
   },
   "name": "ninefreq",
   "version": "1.0.0",
