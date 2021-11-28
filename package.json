@@ -1,0 +1,22 @@
+{
+  "scripts": {
+    "build": "ts-node ninefreq.ts"
+  },
+  "name": "ninefreq",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grichardsldn/ninefreq.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grichardsldn/ninefreq/issues"
+  },
+  "homepage": "https://github.com/grichardsldn/ninefreq#readme",
+  "dependencies": {
+    "ts-node": "^10.4.0"
+  }
+}
