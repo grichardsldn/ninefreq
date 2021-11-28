@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/grichardsldn/ninefreq#readme",
   "dependencies": {
+    "fs": "^0.0.1-security",
     "ts-node": "^10.4.0"
   }
 }
