@@ -1,7 +1,14 @@
 import { writeFileSync } from 'fs'
 
-type Position = [number, number, number]
+export type Position = [number, number, number]
 
+export const addPosition = (a: Position, b: Position): Position => {
+  return [a[0] + b[0], a[1] + b[1], a[2] + b[2] ]
+}
+
+export const scalePosition = (a: Position, scale: number): Position => {
+  return [a[0] * scale, a[1] * scale, a[2] * scale ]
+}
 type Face = {
   material: string,
   positions: number[],
@@ -58,16 +65,17 @@ export class WavefrontObject {
   public write(dir: string, name: string): void {
     const lines: string[] = []
     lines.push(`o ${name}`)
-    lines.push(...this.vertexes.map(v => `v ${v[0]} ${v[1]} ${v[2]}`))
+    lines.push(...this.vertexes.map(v => 
+      `v ${v[0].toFixed(6)} ${v[2].toFixed(6)} ${v[1].toFixed(6)}`)) // dump in x,z,y for some reason`
     lines.push(`mtllib ${this.materials.map(m => `${m}.mtl`).join(' ')}`)
     lines.push(...(this.faces.flatMap(f => [
       `usemtl ${f.material}`,
-      `f ${f.positions[0]} ${f.positions[1]} ${f.positions[2]}`,
+      `f ${f.positions.join(' ')}`,
     ]
     )))
     lines.push(``)
     writeFileSync(`${dir}/${name}.obj`,  lines.join('\n')  )
-    console.log(this)
+    // console.log(JSON.stringify(this))
   }
 }
 

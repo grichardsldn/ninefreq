@@ -9,6 +9,7 @@ export type Spectrum = [
 export const LOW_FILTER = [100,0,0, 100,0,0, 100,0,0] as Spectrum
 export const MID_FILTER = [0,100,0, 0,100,0, 0,100,0] as Spectrum
 export const HIGH_FITER = [0,0,100, 0,0,100, 0,0,100] as Spectrum
+export const ALL_FILTER = [100,100,100, 100,100,100, 100,100,100] as Spectrum
 
 export const simpleRGB = (colour: Spectrum): RGB => {
   const s = colour
