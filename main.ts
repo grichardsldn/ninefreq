@@ -92,7 +92,7 @@ for (let c = 0; c < 9; c++) {
   let spectrum = [...Array(9)] as colour.Spectrum
   spectrum = spectrum.map(v => randomLevel()) as colour.Spectrum
   colour.writeMaterial(name, colour.simpleRGB(colour.filter(spectrum, filter)), "output")
-  drawBlock(block, o, 0.1, origin ,c,-1, name)
+  drawBlock(block, o, 0.1, origin ,c,-2, name)
 }
 
 for (let c = 0; c < 9; c++) {
@@ -100,7 +100,20 @@ for (let c = 0; c < 9; c++) {
   let spectrum = [...Array(9)] as colour.Spectrum
   spectrum = spectrum.map(v => randomLevel()) as colour.Spectrum
   colour.writeMaterial(name, colour.simpleRGB(colour.filter(spectrum, filter)), "output")
-  drawBlock(block,o, 0.1, origin ,c,0, name)
+  drawBlock(block,o, 0.1, origin ,c,-1, name)
+}
+
+const red = [33,33,34,0,0,0,0,0,0] as colour.Spectrum
+colour.writeMaterial("red", colour.simpleRGB(colour.filter(red, filter)), "output")
+const green = [0,0,0,33,33,34,0,0,0] as colour.Spectrum
+colour.writeMaterial("green", colour.simpleRGB(colour.filter(green, filter)), "output")
+const blue = [0,0,0,0,0,0,33,33,34] as colour.Spectrum
+colour.writeMaterial("blue", colour.simpleRGB(colour.filter(blue, filter)), "output")
+
+
+for (let c = 0; c < 9; c++) {
+  const names = ["red", "red", "red", "green", "green", "green", "blue", "blue", "blue"]
+  drawBlock(block, o, 0.1, origin ,c,0, names[c])
 }
 
 for (let c = 0; c < 9; c++) {
@@ -122,15 +135,15 @@ for (let c = 0; c < 9; c++) {
 }
 
 const spectra = [
-  [0,50,50, 33,33,34, 33,33,34] as colour.Spectrum,
-  [50,0,50, 33,33,34, 33,33,34] as colour.Spectrum,
-  [50,50,0, 33,33,34, 33,33,34] as colour.Spectrum,
-  [33,33,34, 0,50,50, 33,33,34] as colour.Spectrum,
-  [33,33,34, 50,0,50, 33,33,34] as colour.Spectrum,
-  [33,33,34, 50,50,0, 33,33,34] as colour.Spectrum,
-  [33,33,34, 33,33,34, 0,50,50] as colour.Spectrum,
-  [33,33,34, 33,33,34, 50,0,50] as colour.Spectrum,
-  [33,33,34, 33,33,34, 50,50,0] as colour.Spectrum,
+  [100,0,0, 33,33,34, 33,33,34] as colour.Spectrum,
+  [0,100,0, 33,33,34, 33,33,34] as colour.Spectrum,
+  [0,0,100, 33,33,34, 33,33,34] as colour.Spectrum,
+  [33,33,34, 100,0,0, 33,33,34] as colour.Spectrum,
+  [33,33,34, 0,100,0, 33,33,34] as colour.Spectrum,
+  [33,33,34, 0,0,100, 33,33,34] as colour.Spectrum,
+  [33,33,34, 33,33,34, 100,0,0] as colour.Spectrum,
+  [33,33,34, 33,33,34, 0,100,0] as colour.Spectrum,
+  [33,33,34, 33,33,34, 0,0,100] as colour.Spectrum,
 ]
 for (let c = 0; c < 9; c++) {
   const name = `narrow_notch_${c}`;
