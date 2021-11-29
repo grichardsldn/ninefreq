@@ -41,7 +41,7 @@ Ks ${r} ${g} ${b}
 Ns 100
 Ni 1.000000 
 d 1.000000 
-illum 0 
+illum 3 
 `
   writeFileSync(`${dir}/${name}.mtl`, output)
 }
