@@ -6,7 +6,7 @@ const pseudoRandom = require('pseudo-random');
 const prng = pseudoRandom(12021990);
 
 
-const filter = colour.ALL_FILTER
+const filter = colour.HIGH_FILTER
 
 const block: Position[][] = [
   [[0,0,0],[3,0,0],[3,5,0],[0,5,0]], // base
@@ -135,16 +135,16 @@ for (let c = 0; c < 9; c++) {
 }
 
 const spectra = [
-  [100,0,0, 33,33,34, 33,33,34] as colour.Spectrum,
-  [0,100,0, 33,33,34, 33,33,34] as colour.Spectrum,
-  [0,0,100, 33,33,34, 33,33,34] as colour.Spectrum,
-  [33,33,34, 100,0,0, 33,33,34] as colour.Spectrum,
-  [33,33,34, 0,100,0, 33,33,34] as colour.Spectrum,
-  [33,33,34, 0,0,100, 33,33,34] as colour.Spectrum,
-  [33,33,34, 33,33,34, 100,0,0] as colour.Spectrum,
-  [33,33,34, 33,33,34, 0,100,0] as colour.Spectrum,
-  [33,33,34, 33,33,34, 0,0,100] as colour.Spectrum,
-]
+  [100,0,0, 33,33,34, 33,33,34],
+  [0,100,0, 33,33,34, 33,33,34],
+  [0,0,100, 33,33,34, 33,33,34],
+  [33,33,34, 100,0,0, 33,33,34],
+  [33,33,34, 0,100,0, 33,33,34],
+  [33,33,34, 0,0,100, 33,33,34],
+  [33,33,34, 33,33,34, 100,0,0],
+  [33,33,34, 33,33,34, 0,100,0],
+  [33,33,34, 33,33,34, 0,0,100],
+] as colour.Spectrum[]
 for (let c = 0; c < 9; c++) {
   const name = `narrow_notch_${c}`;
   colour.writeMaterial(name, colour.simpleRGB(colour.filter(spectra[c], filter)), "output")
