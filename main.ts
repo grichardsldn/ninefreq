@@ -160,15 +160,9 @@ for (let c = 0; c < 9; c++) {
   }
   colour.writeMaterial(name, colour.simpleRGB(colour.filter(spectrum, filter)), "output")
   drawBlock(panel, o, 0.1, origin ,-5,(c * 3) - 15, name)
+  drawBlock(panel, o, 0.1, origin ,20,(c * 3) - 15, name)
 }
 
-const offWhite = Array(9).fill(33) as colour.Spectrum
-offWhite[8] = 0;
-colour.writeMaterial('offWhite', colour.simpleRGB(colour.filter(offWhite, filter)), "output")
-  
-for (let c = 0; c < 9; c++) {
-  drawBlock(panel, o, 0.1, origin ,20,(c * 3) - 15, 'offWhite')
-}
 const skyBlue = Array(9).fill(33) as colour.Spectrum
 skyBlue[0] = 0;
 skyBlue[1] = 0;
