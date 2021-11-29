@@ -172,7 +172,7 @@ for (let c = 0; c < 9; c++) {
 const skyBlue = Array(9).fill(33) as colour.Spectrum
 skyBlue[0] = 0;
 skyBlue[1] = 0;
-skyBlue[2] = 0;
+
 colour.writeMaterial('skyBlue', colour.simpleRGB(colour.filter(skyBlue, filter)), "output")
   
 drawBlock(lid, o, 0.1, origin ,-20,-10 , 'skyBlue')
