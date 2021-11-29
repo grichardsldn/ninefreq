@@ -6,7 +6,7 @@ const pseudoRandom = require('pseudo-random');
 const prng = pseudoRandom(12021990);
 
 
-const filter = colour.ALL_FILTER
+const filter = colour.LOW_FILTER
 
 const block: Position[][] = [
   [[0,0,0],[3,0,0],[3,5,0],[0,5,0]], // base

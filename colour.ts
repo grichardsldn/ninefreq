@@ -14,9 +14,9 @@ export const ALL_FILTER = [100,100,100, 100,100,100, 100,100,100] as Spectrum
 export const simpleRGB = (colour: Spectrum): RGB => {
   const s = colour
   return [
-    (s[0] + s[1] + s[2]) / 3.0,
-    (s[3] + s[4] + s[5]) / 3.0,
-    ((s[6] + s[7] + s[8]) / 3.0),
+    (s[0] + s[1] + s[2]),
+    (s[3] + s[4] + s[5]),
+    ((s[6] + s[7] + s[8])),
   ]
 }
 
