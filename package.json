@@ -18,8 +18,11 @@
   "homepage": "https://github.com/grichardsldn/ninefreq#readme",
   "dependencies": {
     "11": "0.0.1",
+    "@types/node": "^16.11.11",
     "fs": "^0.0.1-security",
+    "node": "^17.1.0",
     "pseudo-random": "^0.6.0",
-    "ts-node": "^10.4.0"
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
   }
 }

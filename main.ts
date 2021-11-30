@@ -5,7 +5,6 @@ import { WavefrontObject, Position, addPosition, scalePosition } from './Wavefro
 const pseudoRandom = require('pseudo-random');
 const prng = pseudoRandom(12021990);
 
-
 const filter = colour.HIGH_FILTER
 
 const block: Position[][] = [
